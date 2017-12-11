@@ -1,0 +1,49 @@
+# Project: ATM
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = account.o main.o card.o ATM.o transaction.o record.o withdrawal.o depsoit.o
+LINKOBJ  = account.o main.o card.o ATM.o transaction.o record.o withdrawal.o depsoit.o
+LIBS     = -L"G:/programs/Dev-Cpp/MinGW64/lib" -L"G:/programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"G:/programs/Dev-Cpp/MinGW64/include" -I"G:/programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"G:/programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"G:/programs/Dev-Cpp/MinGW64/include" -I"G:/programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"G:/programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"G:/programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = ATM.exe
+CXXFLAGS = $(CXXINCS) -ansi -traditional-cpp
+CFLAGS   = $(INCS) -ansi -traditional-cpp
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+account.o: account.cpp
+	$(CPP) -c account.cpp -o account.o $(CXXFLAGS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+card.o: card.cpp
+	$(CPP) -c card.cpp -o card.o $(CXXFLAGS)
+
+ATM.o: ATM.cpp
+	$(CPP) -c ATM.cpp -o ATM.o $(CXXFLAGS)
+
+transaction.o: transaction.cpp
+	$(CPP) -c transaction.cpp -o transaction.o $(CXXFLAGS)
+
+record.o: record.cpp
+	$(CPP) -c record.cpp -o record.o $(CXXFLAGS)
+
+withdrawal.o: withdrawal.cpp
+	$(CPP) -c withdrawal.cpp -o withdrawal.o $(CXXFLAGS)
+
+depsoit.o: depsoit.cpp
+	$(CPP) -c depsoit.cpp -o depsoit.o $(CXXFLAGS)
